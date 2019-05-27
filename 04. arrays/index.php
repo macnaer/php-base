@@ -1,29 +1,56 @@
 <?php
-$arr = array(4, 6, 345, "string", true);
-$arr1 = [43, 9, 16, 3, "str", true, ["test", 44]];
+// $arr = array(4, 6, 345, "string", true);
+// $arr1 = [43, 9, 16, 3, "str", true, ["test", 44]];
 
-echo $arr1[1];
-echo "<br>";
-$arr1[1] = 10;
-echo $arr1[1];
-echo "<br>";
+// echo $arr1[1];
+// echo "<br>";
+// $arr1[1] = 10;
+// echo $arr1[1];
+// echo "<br>";
 
 $arr3 = [
-    "Model" => "Samsung",
-    "Price" => 3400
+    [
+        "Model" => "Samsung",
+        "Price" => 3400
+    ],
+    [
+        "Model" => "Apple",
+        "Price" => 6400
+    ],
+    [
+        "Model" => "Sony",
+        "Price" => 3000
+    ]
+    // "Model" => "Samsung",
+    // "Price" => 3400
+    
 ];
 
-echo $arr3["Model"];
-echo "<br>";
-echo $arr3["Price"];
-echo "<br>";
-echo "<pre>";
-var_dump($arr3);
-echo "</pre>";
+// $stack = array("orange", "banana");
+// array_push($stack, "apple", "raspberry");
+// print_r($stack);
 
-foreach ($arr3 as $key => $value) {
-    echo "key " . $key . " value " . $value . "<br>";
-}
+$array1 = array("a" => "green", "red", "blue", "red");
+$array2 = array("b" => "green", "yellow", "red");
+$result = array_diff($array1, $array2);
+
+print_r($result);
+
+// echo $arr3["Model"];
+// echo "<br>";
+// echo $arr3["Price"];
+// echo "<br>";
+// echo "<pre>";
+// var_dump($arr3);
+// echo "</pre>";
+
+// foreach ($arr3 as $key => $value) {
+//     echo "key " . $key . " value " . $value . "<br>";
+// }
+
+//  foreach ($arr3 as $value) {
+//      echo " value " . $value . "<br>";
+//  }
 
 
  /*$str = 'One two three';
@@ -89,3 +116,5 @@ foreach ($arr3 as $key => $value) {
     /*$str = '<h1><i>Hello</i>! My name is <b>Tom</b>!</h1><iframe src="http://itstep.org" height="100%" width="100%"></iframe><script>alert(\'XSS\')</script>';
     echo $str;
     echo htmlspecialchars($str, ENT_QUOTES);*/
+
+    
