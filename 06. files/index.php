@@ -1,6 +1,9 @@
 <?php 
   
-$data = file_get_contents('db/db.txt') . "<br>";
+$data = explode("|", file_get_contents('db/db.txt'));
+//  echo "<pre>";
+// print_r($data);
+// echo "</pre>";
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,7 +14,7 @@ $data = file_get_contents('db/db.txt') . "<br>";
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="./css/main.css" />
     <title>Hello, world!</title>
   </head>
   <body>
@@ -30,7 +33,11 @@ $data = file_get_contents('db/db.txt') . "<br>";
                     </div>
                     <button type="submit" name="submit" class="btn-add btn btn-primary">Add</button>
                 </form>
-                <div><?= $data; ?></div>
+                <div><?php
+                  foreach($data as $item){
+                    echo $item;
+                  }
+                ?></div>
             </div>
         </div>
   </div>
