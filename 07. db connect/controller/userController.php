@@ -17,7 +17,7 @@ class UserController {
         $this->pass = htmlspecialchars($pass);
         $db = new DBManager();
 
-        $user = $db->CheckUser($this->email, $this->pass);
+        $user = $db->CheckUser($this->email);
         if (!empty($user)){
             $user = mysqli_fetch_assoc($user);
             return $user;

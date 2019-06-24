@@ -12,7 +12,7 @@ class DBManager
        $this->mysqli->query("SET NAMES 'utf8'");
     }
 
-    public function CheckUser($email, $pass){
+    public function CheckUser($email){
         $result = mysqli_query($this->mysqli, "SELECT * FROM `users` WHERE `email` = '$email';");
         return $result;
     }
