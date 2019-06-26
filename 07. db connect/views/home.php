@@ -16,14 +16,20 @@ if (!empty($_POST)){
     require_once "./controller/userController.php";
     $formValidate = new userController();
     $user = $formValidate->Validate($email, $password );
+    // echo "<pre>";
+    // print_r($user);
+    // echo "</pre>";
     if (isset($user['email'])){
         $useremail = $user['email'];
         $_SESSION["username"] = $useremail;
         header("Location: search.php");
     }
-    else if (empty($user)){
-        $msg = "User does not exist!";
-        $_SESSION["msg"] = $msg;
+    // else if (empty($user)){
+    //     $msg = "User does not exist!";
+    //     $_SESSION["msg"] = $msg;
+    // }
+    else if (!empty($user)){
+        $_SESSION["passError"] = $user;
     }
 
 }
@@ -47,8 +53,12 @@ if (!empty($_POST)){
             </form>
             <div class="msg">
                 <?php 
-                    if (isset($_SESSION["msg"])){
-                        echo $_SESSION["msg"];
+                    // if (isset($_SESSION["msg"])){
+                    //     echo $_SESSION["msg"];
+                    // } 
+                     if(isset($_SESSION["passError"])){
+                        echo $_SESSION["passError"];
+                        $_SESSION["passError"] = "";
                     }
                 ?>
             </div>

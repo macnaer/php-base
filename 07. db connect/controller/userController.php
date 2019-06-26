@@ -20,7 +20,16 @@ class UserController {
         $user = $db->CheckUser($this->email);
         if (!empty($user)){
             $user = mysqli_fetch_assoc($user);
-            return $user;
+            $userPass = $user["password"];
+
+            if ($userPass == $this->pass){
+                return $user;
+            }
+            else{
+                $passError = "Username or password incorrect!";
+                return $passError;
+            }
+            
         }
         else{
           
