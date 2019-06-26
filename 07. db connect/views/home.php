@@ -1,9 +1,13 @@
 <?php
 session_start();
 
-echo "<pre>";
-print_r($_SESSION);
-echo "</pre>";
+if (isset($_SESSION["username"])){
+     header("Location: search.php");
+}
+
+// echo "<pre>";
+// print_r($_SESSION);
+// echo "</pre>";
 
 if (!empty($_POST)){
     $email = $_POST["email"];
@@ -14,9 +18,8 @@ if (!empty($_POST)){
     $user = $formValidate->Validate($email, $password );
     if (isset($user['email'])){
         $useremail = $user['email'];
-        $userpass = $user['password'];
-          echo $useremail . "<br>";
-        echo $userpass;
+        $_SESSION["username"] = $useremail;
+        header("Location: search.php");
     }
     else if (empty($user)){
         $msg = "User does not exist!";
