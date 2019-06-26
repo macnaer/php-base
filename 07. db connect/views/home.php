@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
 
 if (!empty($_POST)){
     $email = $_POST["email"];
@@ -15,11 +20,8 @@ if (!empty($_POST)){
     }
     else if (empty($user)){
         $msg = "User does not exist!";
-        echo $msg;
+        $_SESSION["msg"] = $msg;
     }
-    
-
-    print_r($user);
 
 }
 ?>
@@ -40,6 +42,13 @@ if (!empty($_POST)){
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
+            <div class="msg">
+                <?php 
+                    if (isset($_SESSION["msg"])){
+                        echo $_SESSION["msg"];
+                    }
+                ?>
+            </div>
         </div>
     </div>
 </div>
